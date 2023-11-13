@@ -1,0 +1,9 @@
+<section>
+    <mat-card>
+        <mat-card-content>
+            <button mat-raised-button *ngFor="let action of actions" (click)="parse(action.value)">
+                {{action.name}}
+            </button>
+        </mat-card-content>
+    </mat-card>
+</section>

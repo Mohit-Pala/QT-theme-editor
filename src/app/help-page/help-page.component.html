@@ -1,0 +1,141 @@
+<section>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>
+                menu
+            </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                Editor
+                <mat-icon>
+                    edit
+                </mat-icon>
+            </button>
+            <button mat-menu-item>
+                Bottom bar
+                <mat-icon>
+                    low_priority
+                </mat-icon>
+            </button>
+            <button mat-menu-item>
+                Viewer
+                <mat-icon>
+                    preview
+                </mat-icon>
+            </button>
+            <button mat-menu-item>
+                Load
+                <mat-icon>
+                    cloudupload
+                </mat-icon>
+            </button>
+            <button mat-menu-item>
+                Installation guide
+                <mat-icon>
+                    download
+                </mat-icon>
+            </button>
+        </mat-menu>
+    </div>
+
+    <mat-card>
+        <mat-card-header>
+            Editor:
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    Use the toggle buttons to select a componet to edit
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    The next line shows you the selected component
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Use the sliders to see the component change in real time
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Once you are done you can download or save the theme
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            Viewer
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    This is a place to preview the theme
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    None of the components here have any function
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            Bottom Bar
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    Reset: resets all values to 0, plain white theme
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Download: zips up required files and downloads it
+                </mat-list-item>
+                <mat-list-item>
+                    Save for later: saves the theme with the name to the browser storage
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            Installation guide (Linux/BSD)
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    Theme will be downloaded as a <b>.zip</b> file
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    By default the browser downloads to the <b>~/Downloads</b> directory
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Create the <b>~/.themes</b> directory if it dosent exist <b>mkdir ~/.themes</b>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Unizp the contents of the zip to ~/.themes
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+        <mat-card-header>
+            To apply
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    KDE: system settings -> application theme -> gtk theme
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Gnome: use gnome tweaks 
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Wlroots based compositors: use nwg-look to apply theme
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    Other desktop enviorments and X11 based window managers: use lxappearence
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</section>
