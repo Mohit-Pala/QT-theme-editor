@@ -6,8 +6,8 @@
 
         <mat-card-content>
             <mat-button-toggle-group #group="matButtonToggleGroup">
-                <mat-button-toggle *ngFor="let item of toChange" value="{{item}}">
-                    {{item}}
+                <mat-button-toggle *ngFor="let item of toChange" value="{{item.name}}" (change)="parseId(item.id)">
+                    {{item.name}}
                 </mat-button-toggle>
             </mat-button-toggle-group>
 
