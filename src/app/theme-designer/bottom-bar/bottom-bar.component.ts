@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
 	styleUrls: ['./bottom-bar.component.css']
 })
 export class BottomBarComponent {
-	
+	public reset(): void {
+		// reset values to 0
+	}
+
+	public download(): void {
+		// zip up and download files
+	}
+
+	public save(): void {
+		// save to local storage
+	}
 }
