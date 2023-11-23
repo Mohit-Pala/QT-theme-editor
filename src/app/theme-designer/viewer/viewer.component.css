@@ -1,0 +1,28 @@
+mat-card-content {
+    display: flex;
+}
+
+#forrm {
+    border-style: solid;
+    border-width: 2px;
+}
+
+div {
+    flex: 0.5;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.rowFlex {
+    margin-top: 15px;
+    margin-bottom: 1x5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#noBorder {
+    border-style: none;
+}

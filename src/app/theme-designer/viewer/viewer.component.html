@@ -1,3 +1,55 @@
 <section>
-    
+    <mat-card id="left">
+        <mat-card-header>
+            Viewer
+        </mat-card-header>
+
+        <mat-card-content>
+            <div id="forrm">
+                <form>
+                    <mat-radio-button value="1">Radio Button</mat-radio-button>
+                    <mat-checkbox>Check Button</mat-checkbox>
+                    <mat-form-field>
+                        <mat-label>Input</mat-label>
+                        <input matInput placeholder="0" type="number">
+                    </mat-form-field>
+                    <button mat-raised-button>
+                        <mat-icon>
+                            search
+                        </mat-icon>
+                        Button
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <div class="rowFlex">
+                    <label for="indeterminateProgress">
+                        Progress Bar
+                    </label>
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </div>
+                <div class="rowFlex">
+                    <label>
+                        Progress Bar - 60%
+                    </label>
+                    <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+                </div>
+                <mat-form-field>
+                    <mat-label>Select</mat-label>
+                    <mat-select>
+                        <mat-option>
+                            Option 1
+                        </mat-option>
+                        <mat-option>
+                            Option 2
+                        </mat-option>
+                        <mat-option>
+                            Option 2
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
 </section>

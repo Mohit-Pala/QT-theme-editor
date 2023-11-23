@@ -27,7 +27,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ThemeLoadComponent } from './theme-load/theme-load.component';
 
 
 @NgModule({
@@ -40,7 +44,8 @@ import {MatInputModule} from '@angular/material/input';
     ChangerComponent,
     BottomBarComponent,
     CombineComponent,
-    LoadComponent
+    LoadComponent,
+    ThemeLoadComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,9 @@ import {MatInputModule} from '@angular/material/input';
     MatSliderModule,
     MatSelectModule,
     MatInputModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

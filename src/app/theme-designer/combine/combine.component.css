@@ -1,0 +1,11 @@
+div {
+    display: flex;
+}
+
+app-changer {
+    flex: 0.4;
+}
+
+app-viewer {
+    flex: 0.6;
+}
