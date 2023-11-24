@@ -1,3 +1,9 @@
 mat-card {
+    background-color: rgb(30, 30, 46);
+    color: rgb(205, 214, 244);
     margin: 50px;
+}
+
+.mat-mdc-list-base {
+    --mdc-list-list-item-label-text-color: rgb(205, 214, 244);
 }
