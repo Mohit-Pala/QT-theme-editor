@@ -1,0 +1,19 @@
+section {
+    background-color: rgb(30, 30, 46);
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: rgb(242, 205, 205);
+    --mat-tab-header-disabled-ripple-color: rgb(205, 214, 244);
+    --mat-tab-header-pagination-icon-color: rgb(205, 214, 244);
+    --mat-tab-header-inactive-label-text-color: rgb(205, 214, 244);
+    --mat-tab-header-active-label-text-color: rgb(205, 214, 244);
+    --mat-tab-header-active-ripple-color: rgb(205, 214, 244);
+    --mat-tab-header-inactive-ripple-color: rgb(205, 214, 244);
+    --mat-tab-header-inactive-focus-label-text-color: rgb(205, 214, 244);
+    --mat-tab-header-inactive-hover-label-text-color: rgb(205, 214, 244);
+    --mat-tab-header-active-focus-label-text-color: rgb(242, 205, 205);
+    --mat-tab-header-active-hover-label-text-color: rgb(242, 205, 205);
+    --mat-tab-header-active-focus-indicator-color: rgb(242, 205, 205);
+    --mat-tab-header-active-hover-indicator-color: rgb(242, 205, 205);
+}
