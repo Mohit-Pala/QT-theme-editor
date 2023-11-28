@@ -10,3 +10,76 @@ button {
 mat-card {
     margin: 20px;
 }
+
+#chnagerAndViewer {
+    display: flex;
+    flex-direction: row;
+}
+
+#changerDiv {
+    flex: 0.4;
+}
+
+#viewerDiv {
+    flex: 0.6;
+}
+
+#changer {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-content {
+    display: flex;
+}
+
+#forrm {
+    border-style: solid;
+    border-width: 2px;
+    border-color: yellow;
+}
+
+.seperator {
+    flex: 0.5;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.rowFlex {
+    margin-top: 15px;
+    margin-bottom: 1x5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#noBorder {
+    border-style: none;
+}
+
+
+.loadMatContent {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card {
+    background-color:rgb(30,30,46);
+    color:rgb(205,214,244);
+}
+
+mat-flat-button {
+    background-color:  rgb(49,50,68);
+    color: rgb(205,214,244);
+}
+
+button {
+    background-color:  rgb(49,50,68);
+    color: rgb(205,214,244);
+}
+
+.mat-mdc-button.mat-unthemed {
+    --mdc-text-button-label-text-color: rgb(205,214,244);;
+}

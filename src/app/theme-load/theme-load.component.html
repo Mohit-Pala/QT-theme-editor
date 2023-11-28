@@ -1,17 +1,99 @@
 <section>
     <div id="chnagerAndViewer">
-        <div id="changer">
+        <div id="changerDiv">
             <mat-card>
-                <mat-card-content>
+                <mat-card-header>
+                    Changer
+                </mat-card-header>
 
+                <mat-card-content id="changer">
+                    <mat-button-toggle-group #group="matButtonToggleGroup">
+                        <mat-button-toggle *ngFor="let item of toChange" value="{{item.name}}"
+                            (change)="parseId(item.id)">
+                            {{item.name}}
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+
+                    <h3>
+                        Currently Editing: {{ group.value }}
+                    </h3>
+
+                    <h5>
+                        Red: {{redSlider}}
+                    </h5>
+                    <mat-slider [min]="0" [max]="255" [showTickMarks]="true">
+                        <input matSliderThumb [(ngModel)]="redSlider" #slider (ngModelChange)="updateRed()">
+                    </mat-slider>
+
+                    <h5>
+                        Green: {{greenSlider}}
+                    </h5>
+                    <mat-slider [min]="0" [max]="255" [showTickMarks]="true">
+                        <input matSliderThumb [(ngModel)]="greenSlider" #slider (ngModelChange)="updateGreen()">
+                    </mat-slider>
+
+                    <h5>
+                        Blue: {{blueSlider}}
+                    </h5>
+                    <mat-slider [min]="0" [max]="255" [showTickMarks]="true">
+                        <input matSliderThumb [(ngModel)]="blueSlider" #slider (ngModelChange)="updateBlue()">
+                    </mat-slider>
                 </mat-card-content>
             </mat-card>
         </div>
 
-        <div id="viewer">
-            <mat-card>
-                <mat-card-content>
-                    
+        <div id="viewerDiv">
+            <mat-card id="left">
+                <mat-card-header>
+                    Viewer
+                </mat-card-header>
+
+                <mat-card-content [ngStyle]="{background: backColor, color: foreColor}">
+                    <div id="forrm" class="seperator" [ngStyle]="{'border-color': borderColor}">
+                        <form>
+                            <mat-radio-button value="1" [ngStyle]="{'--mdc-theme-text-primary-on-background': foreColor}">Radio Button</mat-radio-button>
+                            <mat-checkbox [ngStyle]="{'--mdc-theme-text-primary-on-background': foreColor}">Check Button</mat-checkbox>
+                            <mat-form-field [ngStyle]="{'--mdc-filled-text-field-container-color': backColor, color: foreColor}">
+                                <mat-label [ngStyle]="{'color': foreColor}">Input</mat-label>
+                                <input matInput placeholder="0" type="number" [ngStyle]="{'color': foreColor}">
+                            </mat-form-field>
+                            <button mat-flat-button [ngStyle]="{background: buttonColor, color: foreColor}">
+                                <mat-icon>
+                                    search
+                                </mat-icon>
+                                Button
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="seperator" [ngStyle]="{'--mat-select-panel-background-color': 'yellow'}">
+                        <div class="rowFlex">
+                            <label for="indeterminateProgress">
+                                Progress Bar
+                            </label>
+                            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                        </div>
+                        <div class="rowFlex">
+                            <label>
+                                Progress Bar - 60%
+                            </label>
+                            <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+                        </div>
+                        <mat-form-field [ngStyle]="{'--mdc-filled-text-field-container-color': backColor, color: foreColor}">
+                            <mat-label>Select</mat-label>
+                            <mat-select>
+                                <mat-option>
+                                    Option 1
+                                </mat-option>
+                                <mat-option>
+                                    Option 2
+                                </mat-option>
+                                <mat-option>
+                                    Option 2
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -22,16 +104,16 @@
             Actions:
         </mat-card-header>
         <mat-card-content>
-            <button mat-raised-button class="custom-color">
+            <button mat-button (click)="resetTo0()">
                 🔄 Reset
             </button>
-            <button mat-raised-button class="custom-color">
+            <button mat-button>
                 <mat-icon>
                     download
                 </mat-icon>
                 Download
             </button>
-            <button mat-raised-button class="custom-color">
+            <button mat-button (click)="showSave()">
                 <mat-icon>
                     save
                 </mat-icon>
@@ -40,7 +122,72 @@
         </mat-card-content>
     </mat-card>
 
-    <div *ngIf="false" id="load">
+    <mat-card *ngIf="savingTheme" id="saveDialog">
+        <mat-card-content class="loadMatContent">
+            <mat-form-field [ngStyle]="{'--mdc-filled-text-field-container-color': 'rgb(30,30,46)', color: 'rgb(205,214,244)'}">
+                <mat-label [ngStyle]="{'color': 'rgb(205,214,244)'}">Name</mat-label>
+                <input matInput placeholder="Red-Yellow Theme" type="text" [ngStyle]="{'color': 'rgb(205,214,244)'}" [(ngModel)]="themeName">
+            </mat-form-field>
+            <button mat-flat-button [ngStyle]="{background: buttonColor, color: foreColor}" (click)="saveTheme()">
+                Confirm
+            </button>
+        </mat-card-content>
+    </mat-card>
 
+    <div *ngIf="true" id="load">
+        <div *ngFor="let x of themesArray">
+            <!---
+                ng for
+            -->
+
+            <mat-card>
+                <mat-card-header>
+                    {{x.name}}
+                </mat-card-header>
+                <mat-card-content class="loadMatContent">
+                    <div>
+                        <button [ngStyle]="{'background-color': x.background}">
+                            Color
+                        </button>
+                        <label>
+                            Backgoround: {{x.background}}
+                        </label>
+                    </div>
+
+                    <div>
+                        <button [ngStyle]="{'background-color': x.foreground}">
+                            Color
+                        </button>
+                        <label>
+                            Text: {{x.foreground}}
+                        </label>
+                    </div>
+
+                    <div>
+                        <button [ngStyle]="{'background-color': x.button}">
+                            Color
+                        </button>
+                        <label>
+                            Button: {{x.button}}
+                        </label>
+                    </div>
+
+                    <div>
+                        <button [ngStyle]="{'background-color': x.border}">
+                            Color
+                        </button>
+                        <label>
+                            Border: {{x.border}}
+                        </label>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-button>
+                        load
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
     </div>
 </section>
