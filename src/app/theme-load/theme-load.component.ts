@@ -1,11 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-theme-load',
 	templateUrl: './theme-load.component.html',
 	styleUrls: ['./theme-load.component.css']
 })
-export class ThemeLoadComponent {
+export class ThemeLoadComponent implements OnInit {
+	ngOnInit(): void {
+
+		let myItem = localStorage.getItem(this.key);
+
+		if (myItem === null) {
+			localStorage.setItem(this.key, JSON.stringify(this.themesArray));
+		}
+
+		else {
+			this.themesArray = JSON.parse(myItem);
+		}
+	}
+
+	public key = 'themeDesigner';
+
+
 	public backR: number = 30;
 	public backG: number = 30;
 	public backB: number = 46;
@@ -40,10 +56,26 @@ export class ThemeLoadComponent {
 		background: String,
 		foreground: String,
 		button: String,
-		border: String
+		border: String,
+
+		backRed: number,
+		backGreen: number,
+		backBlue: number,
+
+		foreRed: number,
+		foreGreen: number,
+		foreBlue: number,
+
+		buttonRed: number,
+		buttonGreen: number,
+		buttonBlue: number,
+
+		borderRed: number,
+		borderGreen: number,
+		borderBlue: number,
 	}[] = [
 
-	]
+		]
 
 	public toChange: { name: String, id: number }[] = [
 		{ 'name': 'Background', 'id': 0 },
@@ -91,7 +123,7 @@ export class ThemeLoadComponent {
 	public updateRed(): void {
 		if (this.currentlyEditing === 0) {
 			this.backR = this.redSlider;
-			this.backColor = this.makeRGB (this.backR, this.backG, this.backB);
+			this.backColor = this.makeRGB(this.backR, this.backG, this.backB);
 		}
 		else if (this.currentlyEditing === 1) {
 			this.foreR = this.redSlider;
@@ -110,7 +142,7 @@ export class ThemeLoadComponent {
 	public updateGreen(): void {
 		if (this.currentlyEditing === 0) {
 			this.backG = this.greenSlider;
-			this.backColor = this.makeRGB (this.backR, this.backG, this.backB);
+			this.backColor = this.makeRGB(this.backR, this.backG, this.backB);
 		}
 		else if (this.currentlyEditing === 1) {
 			this.foreG = this.greenSlider;
@@ -129,7 +161,7 @@ export class ThemeLoadComponent {
 	public updateBlue(): void {
 		if (this.currentlyEditing === 0) {
 			this.backB = this.blueSlider;
-			this.backColor = this.makeRGB (this.backR, this.backG, this.backB);
+			this.backColor = this.makeRGB(this.backR, this.backG, this.backB);
 		}
 		else if (this.currentlyEditing === 1) {
 			this.foreB = this.blueSlider;
@@ -158,7 +190,7 @@ export class ThemeLoadComponent {
 		this.borderR = 255;
 		this.borderG = 255;
 		this.borderB = 255;
-		this.backColor = this.makeRGB (this.backR, this.backG, this.backB);
+		this.backColor = this.makeRGB(this.backR, this.backG, this.backB);
 		this.foreColor = this.makeRGB(this.foreR, this.foreG, this.foreB);
 		this.buttonColor = this.makeRGB(this.buttonR, this.buttonG, this.buttonB);
 		this.borderColor = this.makeRGB(this.borderR, this.borderG, this.borderB);
@@ -175,14 +207,77 @@ export class ThemeLoadComponent {
 				'background': this.backColor,
 				'foreground': this.foreColor,
 				'button': this.buttonColor,
-				'border': this.borderColor
+				'border': this.borderColor,
+				'backRed': this.backR,
+				'backGreen': this.backG,
+				'backBlue': this.backB,
+				'foreRed': this.foreR,
+				'foreGreen': this.foreG,
+				'foreBlue': this.foreB,
+				'buttonRed': this.buttonR,
+				'buttonGreen': this.buttonG,
+				'buttonBlue': this.buttonB,
+				'borderRed': this.borderR,
+				'borderGreen': this.borderG,
+				'borderBlue': this.borderB,
 			}
 		);
+
+		localStorage.setItem(this.key, JSON.stringify(this.themesArray));
 	}
 
 	public saveTheme(): void {
 		this.addToArray();
 		this.savingTheme = false;
 		this.themeName = 'Red-Yellow Theme';
+	}
+
+	public loadTheme(
+		backRed: number,
+		backGreen: number,
+		backBlue: number,
+
+		foreRed: number,
+		foreGreen: number,
+		foreBlue: number,
+
+		buttonRed: number,
+		buttonGreen: number,
+		buttonBlue: number,
+
+		borderRed: number,
+		borderGreen: number,
+		borderBlue: number,
+
+		backColor: String,
+		foreColor: String,
+		buttonColor: String,
+		borderColor: String
+	): void {
+
+		this.backR = backRed;
+		this.backG = backBlue;
+		this.backB = backGreen;
+
+		this.foreR = foreRed;
+		this.foreG = foreGreen;
+		this.foreB = foreBlue;
+
+		this.buttonR = buttonRed;
+		this.buttonG = buttonGreen;
+		this.buttonB = buttonBlue;
+
+		this.borderR = borderRed;
+		this.borderG = borderGreen;
+		this.borderB = borderBlue;
+
+		this.updateRed();
+		this.updateGreen();
+		this.updateBlue();
+
+		this.backColor = backColor;
+		this.buttonColor = buttonColor;
+		this.borderColor = borderColor;
+		this.foreColor = foreColor;
 	}
 }
