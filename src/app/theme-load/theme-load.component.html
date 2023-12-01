@@ -122,6 +122,18 @@
         </mat-card-content>
     </mat-card>
 
+    <mat-card *ngIf="savingTheme" id="downloadDialog">
+        <mat-card-content class="loadMatContent">
+            <mat-form-field [ngStyle]="{'--mdc-filled-text-field-container-color': 'rgb(30,30,46)', color: 'rgb(205,214,244)'}">
+                <mat-label [ngStyle]="{'color': 'rgb(205,214,244)'}">Name</mat-label>
+                <input matInput placeholder="Red-Yellow Theme" type="text" [ngStyle]="{'color': 'rgb(205,214,244)'}" [(ngModel)]="themeName">
+            </mat-form-field>
+            <button mat-flat-button [ngStyle]="{background: buttonColor, color: foreColor}" (click)="saveTheme()">
+                Download
+            </button>
+        </mat-card-content>
+    </mat-card>
+
     <mat-card *ngIf="savingTheme" id="saveDialog">
         <mat-card-content class="loadMatContent">
             <mat-form-field [ngStyle]="{'--mdc-filled-text-field-container-color': 'rgb(30,30,46)', color: 'rgb(205,214,244)'}">

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 	templateUrl: './theme-load.component.html',
 	styleUrls: ['./theme-load.component.css']
 })
+
 export class ThemeLoadComponent implements OnInit {
 	ngOnInit(): void {
 
@@ -230,6 +231,19 @@ export class ThemeLoadComponent implements OnInit {
 		this.addToArray();
 		this.savingTheme = false;
 		this.themeName = 'Red-Yellow Theme';
+	}
+
+	public downloadTheme(): void {
+		// make copy of template theme
+		const fs = require('fs');
+		const themeDir = 'src/assets/' + this.themeName;
+		console.log(themeDir);
+
+		// edit contents of copy
+
+		// zip up copy
+
+		// download copy
 	}
 
 	public loadTheme(
