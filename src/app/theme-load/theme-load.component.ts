@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as JSZip from 'jszip';
+import { saveAs } from 'file-saver';
+
 
 @Component({
 	selector: 'app-theme-load',
@@ -234,16 +237,7 @@ export class ThemeLoadComponent implements OnInit {
 	}
 
 	public downloadTheme(): void {
-		// make copy of template theme
-		const fs = require('fs');
-		const themeDir = 'src/assets/' + this.themeName;
-		console.log(themeDir);
-
-		// edit contents of copy
-
-		// zip up copy
-
-		// download copy
+		
 	}
 
 	public loadTheme(
