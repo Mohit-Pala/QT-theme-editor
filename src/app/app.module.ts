@@ -34,6 +34,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ThemeLoadComponent } from './theme-load/theme-load.component';
 
 
+// http client
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +70,7 @@ import { ThemeLoadComponent } from './theme-load/theme-load.component';
     MatRadioModule,
     MatCheckboxModule,
     MatProgressBarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

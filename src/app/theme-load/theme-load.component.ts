@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as JSZip from 'jszip';
 import { saveAs } from 'file-saver';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-theme-load',
@@ -10,6 +10,8 @@ import { saveAs } from 'file-saver';
 })
 
 export class ThemeLoadComponent implements OnInit {
+	constructor(private http: HttpClient) {}
+
 	ngOnInit(): void {
 
 		let myItem = localStorage.getItem(this.key);
@@ -237,7 +239,7 @@ export class ThemeLoadComponent implements OnInit {
 	}
 
 	public downloadTheme(): void {
-		
+
 	}
 
 	public loadTheme(
@@ -287,5 +289,13 @@ export class ThemeLoadComponent implements OnInit {
 		this.buttonColor = buttonColor;
 		this.borderColor = borderColor;
 		this.foreColor = foreColor;
+	}
+
+	downloadZipFile() {
+		const url = 'assets/theme.zip';
+		this.http.get(url, { responseType: 'blob' }).subscribe((data: any) => {
+			const blob = new Blob([data], { type: 'application/zip' });
+			saveAs(blob, 'theme.zip');
+		});
 	}
 }
