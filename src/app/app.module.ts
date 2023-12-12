@@ -36,6 +36,7 @@ import { ThemeLoadComponent } from './theme-load/theme-load.component';
 
 // http client
 import { HttpClientModule } from '@angular/common/http';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     BottomBarComponent,
     CombineComponent,
     LoadComponent,
-    ThemeLoadComponent
+    ThemeLoadComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
