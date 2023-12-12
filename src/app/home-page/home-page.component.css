@@ -1,4 +1,4 @@
-section {
+mat-card {
+    background-color: rgb(30, 30, 46);
     color: rgb(205, 214, 244);
-    margin: 50px;
 }
