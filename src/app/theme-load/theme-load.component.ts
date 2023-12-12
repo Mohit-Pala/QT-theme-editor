@@ -292,10 +292,11 @@ export class ThemeLoadComponent implements OnInit {
 	}
 
 	downloadZipFile() {
-		const url = 'assets/theme.zip';
+		const url = 'assets/templateTheme.zip';
 		this.http.get(url, { responseType: 'blob' }).subscribe((data: any) => {
 			const blob = new Blob([data], { type: 'application/zip' });
-			saveAs(blob, 'theme.zip');
+			var toSave = this.themeName + '.zip';
+			saveAs(blob, toSave);
 		});
 	}
 }
