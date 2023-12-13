@@ -81,5 +81,10 @@ button {
 }
 
 .mat-mdc-button.mat-unthemed {
-    --mdc-text-button-label-text-color: rgb(205,214,244);;
+    --mdc-text-button-label-text-color: rgb(205,214,244);
+}
+
+section {
+    --mat-standard-button-toggle-background-color: rgb(49,50,68);
+    --mat-standard-button-toggle-text-color: rgb(205,214,244);
 }
